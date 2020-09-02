@@ -1,0 +1,1 @@
+export const GET_ALL_COURSES_URL="http://localhost:3000/courses/";
