@@ -3,14 +3,16 @@ import CourseStatusLeftPanel from "./CourseStatusLeftPanel";
 import CourseCards from "./CourseCards";
 import axios from "axios";
 import * as config from "../config";
+import authAxios from "../helpers/AuthHelper"
+
 
 class CourseContent extends Component {
   state = {
     courses: [],
   };
-
+ 
   componentDidMount() {
-    axios
+    authAxios
       .get(config.GET_ALL_COURSES_URL)
       .then((response) => {
         let httpResponse = response.data;
