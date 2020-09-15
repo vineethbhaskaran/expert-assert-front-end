@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import CourseHome from "./components/course/CourseHome";
 import Home from "./components/home/Home";
+import Login from "./components/login/Login";
 
 class App extends Component {
   componentDidMount() {}
@@ -12,7 +13,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-          <Route path="/home">
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/home">
               <Home />
             </Route>
             <Route path="/courses">

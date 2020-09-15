@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class LeftPaneMenuComponent extends Component {
+  componentDidMount() {
+    /* global $ */
+    
+   setTimeout(()=>{
+     if(!$('.main-menu-content').hasClass("ps")){
+      $.app.menu.changeMenu();
+      $.app.menu.init(true);
+     }
+   },0)
+   
+    
+  }
   render() {
     return (
       <div>
