@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class LeftPaneMenuComponent extends Component {
   render() {
@@ -9,16 +10,17 @@ class LeftPaneMenuComponent extends Component {
           <div className="main-menu-content">
             <ul className="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
               <li className=" nav-item">
-                <a href="app-email.html">
-                  <i className="feather icon-home"></i>
+                <Link to="/home">
+                <i className="feather icon-home"></i>
                   <span className="menu-title">Home</span>
-                </a>
+                </Link>
+               
               </li>
               <li className="active">
-                <a href="app-chat.html">
-                  <i className="feather icon-book-open"></i>
+                <Link to="/courses">
+                <i className="feather icon-book-open"></i>
                   <span className="menu-title">Courses</span>
-                </a>
+                </Link>
               </li>
               <li className=" nav-item">
                 <a href="app-todo.html">

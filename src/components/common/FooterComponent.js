@@ -11,10 +11,10 @@ class FooterComponent extends Component {
               Copyright &copy; 2020{" "}
               <a
                 className="text-bold-800 grey darken-2"
-                href="https://1.envato.market/pixinvent_portfolio"
+                href="https://express-assert"
                 target="_blank"
               >
-                PIXINVENT{" "}
+                Express Assert{" "}
               </a>
             </span>
             <span className="float-md-right d-none d-lg-block">
