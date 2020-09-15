@@ -1,26 +1,44 @@
 .panel-full-height {
-     height: calc(var(--vh, 1vh) * 100 - 4rem);
-  border-right: 1px solid #e6e6e6;
+  height: calc(var(--vh, 1vh) * 100 - 6rem);
+  border-right: 1px solid #E6E6E6;
   border-radius: 0.25rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   margin: 0;
   box-shadow: none;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 .panel-1 .list-group-item{
-	background-color: #f5f7fa;
-	cursor: pointer;
+background-color: #f5f7fa;
+cursor: pointer;
 }
 .panel-1 .list-group-item.active{
-	color: #404e67;
-	font-weight: bold;
-	background: #00b5b8;
+color: #404e67;
+font-weight: bold;
+background: #00b5b8;
 }
 .panel-1 .list-group-item:hover{
-	background: #e9ecf1;
+background: #e9ecf1;
 }
 .panel-1 .list-group-item.active:hover{
-	background: #00b5b8;
+background: #00b5b8;
+}
+
+.scrollable-div{
+  height:150px;
+overflow-y: scroll;
+}
+
+.scrollable-div-large{
+height:600px;
+overflow-y: scroll;
+}
+
+.progress-bar-blue {
+background-color:  blue !important;
+}
+.table-column-no-border {
+border-width: 0 !important;
+}
+.bigdrop {
+width: 600px !important;
 }

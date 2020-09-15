@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import CourseStatusLeftPanel from "./CourseStatusLeftPanel";
 import CourseCards from "./CourseCards";
-import axios from "axios";
-import * as config from "../config";
-import authAxios from "../helpers/AuthHelper"
+import * as config from "../../config";
+import authAxios from "../../helpers/AuthHelper"
 
 
 class CourseContent extends Component {

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import NavbarComponent from "./NavbarComponent";
-import LeftPaneMenuComponent from "./LeftPaneMenuComponent";
+import NavbarComponent from "../common/NavbarComponent";
+import LeftPaneMenuComponent from "../common/LeftPaneMenuComponent";
 import CourseContent from "./CourseContent";
-import FooterComponent from "./FooterComponent";
+import FooterComponent from "../common/FooterComponent";
 
 class CourseHome extends Component {
   render() {
