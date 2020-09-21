@@ -22,7 +22,7 @@ class LeftPaneMenuComponent extends Component {
           <div className="main-menu-content">
             <ul className="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
               <li className=" nav-item">
-                <Link to="/home">
+                <Link to="/">
                 <i className="feather icon-home"></i>
                   <span className="menu-title">Home</span>
                 </Link>
