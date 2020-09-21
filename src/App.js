@@ -10,19 +10,19 @@ class App extends Component {
 
   render() {
     return (
-        <div>
-          <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/courses">
-              <CourseHome />
-            </Route>
-          </Switch>
-        </div>
+      <div>
+        <Switch>
+          <Route path="/login(/)?" >
+            <Login />
+          </Route>
+          <Route path="/courses">
+            <CourseHome />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
     );
   }
 }

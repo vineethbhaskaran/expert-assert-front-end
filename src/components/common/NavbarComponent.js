@@ -17,7 +17,7 @@ class NavbarComponent extends Component {
                     <img
                       className="brand-logo"
                       alt="stack admin logo"
-                      src="./app-assets/images/logo/stack-logo-light.png"
+                      src="/app-assets/images/logo/stack-logo-light.png"
                     />
                     <h2 className="brand-text">Stack</h2>
                   </a>
@@ -323,7 +323,7 @@ class NavbarComponent extends Component {
                           <div className="media">
                             <div className="media-left">
                               <div className="avatar avatar-online avatar-sm rounded-circle">
-                                <img src="./app-assets/images/portrait/small/avatar-s-1.png" alt="avatar" />
+                                <img src="/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar" />
                                 <i></i>
                               </div>
                             </div>
@@ -344,7 +344,7 @@ class NavbarComponent extends Component {
                           <div className="media">
                             <div className="media-left">
                               <span className="avatar avatar-sm avatar-busy rounded-circle">
-                                <img src="./app-assets/images/portrait/small/avatar-s-2.png" alt="avatar" />
+                                <img src="/app-assets/images/portrait/small/avatar-s-2.png" alt="avatar" />
                                 <i></i>
                               </span>
                             </div>
@@ -365,7 +365,7 @@ class NavbarComponent extends Component {
                           <div className="media">
                             <div className="media-left">
                               <div className="avatar avatar-online avatar-sm rounded-circle">
-                                <img src="./app-assets/images/portrait/small/avatar-s-3.png" alt="avatar" />
+                                <img src="/app-assets/images/portrait/small/avatar-s-3.png" alt="avatar" />
                                 <i></i>
                               </div>
                             </div>
@@ -386,7 +386,7 @@ class NavbarComponent extends Component {
                           <div className="media">
                             <div className="media-left">
                               <span className="avatar avatar-sm avatar-away rounded-circle">
-                                <img src="./app-assets/images/portrait/small/avatar-s-6.png/" alt="avatar" />
+                                <img src="/app-assets/images/portrait/small/avatar-s-6.png/" alt="avatar" />
                                 <i></i>
                               </span>
                             </div>
@@ -414,7 +414,7 @@ class NavbarComponent extends Component {
                   <li className="dropdown dropdown-user nav-item">
                     <a className="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                       <div className="avatar avatar-online">
-                        <img src="./app-assets/images/portrait/small/avatar-s-1.png" alt="avatar" />
+                        <img src="/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar" />
                         <i></i>
                       </div>
                       <span className="user-name">John Doe</span>
