@@ -5,6 +5,7 @@ require("dotenv").config();
 export default class Auth{
     constructor(){
         this.login=this.login.bind(this);
+        this.logout=this.logout.bind(this);
       }
 
      auth0 = new auth0.WebAuth({
@@ -41,6 +42,9 @@ export default class Auth{
         localStorage.removeItem(config.JWT_TOKEN_EXPIRE_AT);
         localStorage.removeItem(config.JWT_ACCESS_TOKEN_NAME);
         localStorage.removeItem(config.ID_TOKEN_NAME);
+        this.auth0.logout({
+          clientID:process.env.REACT_APP_AUTH0_CLIENT_ID
+        })
       }
 }
 
