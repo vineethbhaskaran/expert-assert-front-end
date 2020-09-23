@@ -8,7 +8,7 @@ class CourseHome extends Component {
   render() {
     return (
       <div>
-        <NavbarComponent />
+        <NavbarComponent auth={this.props.auth}/>
         <LeftPaneMenuComponent />
 
         <CourseContent />

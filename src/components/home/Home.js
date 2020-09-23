@@ -12,7 +12,7 @@ export class Home extends Component {
         return (
           
             <div>
-             <NavbarComponent/>
+             <NavbarComponent auth={this.props.auth}/>
 
 
              <LeftPaneMenuComponent/>

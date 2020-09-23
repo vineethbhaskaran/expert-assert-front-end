@@ -12,8 +12,7 @@ export default class Auth{
         clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
         redirectUri:process.env.REACT_APP_AUTH0_REDIRECT_URL,
         audience:process.env.REACT_APP_AUTH0_AUDIENCE,
-        responseType:process.env.REACT_APP_AUTH0_RESPONSE_TYPES,
-        scope:"read:course"
+        responseType:process.env.REACT_APP_AUTH0_RESPONSE_TYPES
       });
 
       login(){
@@ -36,6 +35,12 @@ export default class Auth{
       isAuthenticated(){
             let expiresAt=JSON.parse(localStorage.getItem('expires_at'));
             return new Date().getTime() < expiresAt;
+      }
+
+      logout(){
+        localStorage.removeItem(config.JWT_TOKEN_EXPIRE_AT);
+        localStorage.removeItem(config.JWT_ACCESS_TOKEN_NAME);
+        localStorage.removeItem(config.ID_TOKEN_NAME);
       }
 }
 
