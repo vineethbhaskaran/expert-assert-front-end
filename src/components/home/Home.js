@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import NavbarComponent from "../common/NavbarComponent";
 import LeftPaneMenuComponent from "../common/LeftPaneMenuComponent";
 import FooterComponent from '../common/FooterComponent';
+import Auth from '../auth/Auth';
 
 export class Home extends Component {
+    componentDidMount(){
+        this.props.auth.handleAuthentication()
+    }
     render() {
         return (
           

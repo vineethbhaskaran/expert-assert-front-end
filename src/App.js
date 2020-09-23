@@ -3,24 +3,31 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import CourseHome from "./components/course/CourseHome";
 import Home from "./components/home/Home";
-import { AuthLogin } from "./components/login/AuthLogin";
+import { Login } from "./components/login/Login";
+import Auth from './components/auth/Auth'
 
+const auth=new Auth();
 class App extends Component {
-  componentDidMount() {}
-
+  constructor(){
+    super();
+    this.state ={
+      auth
+    }
+  }
   render() {
     return (
       <div>
         <Switch>
+        <Route path="/" exact>
+            <Home auth={this.state.auth}/>
+          </Route>
           <Route path="/login" >
-            <AuthLogin />
+            <Login auth={this.state.auth}/>
           </Route>
           <Route path="/courses">
-            <CourseHome />
+            <CourseHome auth={this.state.auth}/>
           </Route>
-          <Route path="/" exact>
-            <Home />
-          </Route>
+          
         </Switch>
       </div>
     );

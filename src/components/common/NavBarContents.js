@@ -1,23 +1,9 @@
 import React from "react";
 import LogoutButton from '../login/LogoutButton'
 
-import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBarContents = () => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  //const { user } = useAuth0();
-  console.log(user);
-  
-  let userName="No User";
-  if(typeof user === 'object'){
-    const { name, picture, email } = user;
-    userName=name;
-    
-  }
-
-
-  //const { email,name, picture} = user;
-
+  let userName="John Doe";
   return (
     <nav className="header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top navbar-semi-dark">
           <div className="navbar-wrapper">

@@ -17,16 +17,16 @@ export class Login extends Component {
     const user = {
       userName: this.state.userName,
     };
-    authAxios
+    /*authAxios
       .post(config.LOGIN_URL, user)
       .then((response) => {
         let httpResponse = response.data;
         localStorage.setItem(config.JWT_ACCESS_TOKEN_NAME, httpResponse.accessToken);
-        this.props.history.push("/home");
+        this.props.history.push("/");
       })
       .catch((error) => {
         console.log(error);
-      });
+      });*/
   };
 
   render() {
@@ -109,7 +109,7 @@ export class Login extends Component {
                               </div>
                             </div>
                             <a href="courses.html">
-                              <button type="submit" className="btn btn-outline-primary btn-block">
+                              <button onClick={this.props.auth.login} className="btn btn-outline-primary btn-block">
                                 <i className="feather icon-unlock"></i> Login
                               </button>
                             </a>
