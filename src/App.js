@@ -4,30 +4,34 @@ import "./App.css";
 import CourseHome from "./components/course/CourseHome";
 import Home from "./components/home/Home";
 import { Login } from "./components/login/Login";
-import Auth from './components/auth/Auth'
+import Auth from "./components/auth/Auth";
+import CreateCourse from "./components/course/CreateCourse/CreateCourse";
 
-const auth=new Auth();
+const auth = new Auth();
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state ={
-      auth
-    }
+    this.state = {
+      auth,
+    };
   }
   render() {
     return (
       <div>
         <Switch>
-        <Route path="/" exact>
-            <Home auth={this.state.auth}/>
+          <Route path="/" exact>
+            <Home auth={this.state.auth} />
           </Route>
-          <Route path="/login" >
-            <Login auth={this.state.auth}/>
+          <Route path="/login">
+            <Login auth={this.state.auth} />
+          </Route>
+          <Route path="/courses/create">
+            <CreateCourse auth={this.state.auth} />
           </Route>
           <Route path="/courses">
-            <CourseHome auth={this.state.auth}/>
+            <CourseHome auth={this.state.auth} />
           </Route>
-          
+         
         </Switch>
       </div>
     );
