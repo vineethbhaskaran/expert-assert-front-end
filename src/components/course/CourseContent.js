@@ -3,23 +3,13 @@ import CourseStatusLeftPanel from "./CourseStatusLeftPanel";
 import CourseCards from "./CourseCards";
 import * as config from "../../config";
 import authAxios from "../../helpers/AuthHelper"
-
+import {fetchCourses} from "../../reduxUtils/actions/courseAction"
+import { connect } from 'react-redux';
 
 class CourseContent extends Component {
-  state = {
-    courses: [],
-  };
  
   componentDidMount() {
-    authAxios
-      .get(config.GET_ALL_COURSES_URL)
-      .then((response) => {
-        let httpResponse = response.data;
-        this.setState({ courses: httpResponse.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.props.fetchCourses();
   }
 
   render() {
@@ -33,7 +23,7 @@ class CourseContent extends Component {
             <div className="col-10 panel-full-height">
               <div id="courses">
                 <div className="row match-height mt-2">
-                  <CourseCards courses={this.state.courses} />
+                  <CourseCards courses={this.props.courses} />
                 </div>
               </div>
             </div>
@@ -44,4 +34,8 @@ class CourseContent extends Component {
   }
 }
 
-export default CourseContent;
+const mapStateToProps = state => ({
+  courses: state.courseData.courses,
+});
+//export default CourseContent;
+export default connect(mapStateToProps, { fetchCourses })(CourseContent);
