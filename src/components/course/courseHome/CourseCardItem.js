@@ -8,7 +8,7 @@ class CourseCardItem extends Component {
           <div className="card-content">
             <img
               className="card-img-top img-fluid"
-              src="../../../app-assets/images/carousel/06.jpg"
+              src="../../../app-assets/images/carousel/04.jpg"
               alt="Card image cap"
             />
             <div className="card-body">
