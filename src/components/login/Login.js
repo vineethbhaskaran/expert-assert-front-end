@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import authAxios from "../../helpers/AuthHelper";
-import * as config from "../../config";
 import { withRouter } from "react-router-dom";
 
 export class Login extends Component {

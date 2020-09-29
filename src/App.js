@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import CourseHome from "./components/course/CourseHome";
+import CourseHome from "./components/course/courseHome/CourseHome";
 import Home from "./components/home/Home";
 import { Login } from "./components/login/Login";
 import Auth from "./components/auth/Auth";
-import CreateCourse from "./components/course/CreateCourse/CreateCourse";
+import CreateCourse from "./components/course/createCourse/CreateCourse";
 import { Provider } from "react-redux";
 import store from './reduxUtils/store';
 

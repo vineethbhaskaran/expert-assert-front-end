@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import CourseStatusLeftPanel from "./CourseStatusLeftPanel";
 import CourseCards from "./CourseCards";
-import * as config from "../../config";
-import authAxios from "../../helpers/AuthHelper"
-import {fetchCourses} from "../../reduxUtils/actions/courseAction"
+import {fetchCourses} from "../../../reduxUtils/actions/courseAction"
 import { connect } from 'react-redux';
 
 class CourseContent extends Component {
