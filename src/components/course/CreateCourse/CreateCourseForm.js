@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import authAxios from "../../../helpers/AuthHelper";
-import * as config from "../../../config";
+import {createCourse} from "../../../reduxUtils/actions/courseAction"
+import { connect } from 'react-redux';
 
 export class CreateCourseForm extends Component {
   
@@ -31,15 +31,7 @@ export class CreateCourseForm extends Component {
       description:this.state.courseDecription
     }
 
-    authAxios
-    .post(config.GET_ALL_COURSES_URL,requestData)
-    .then((response) => {
-      let httpResponse = response.data;
-      //this.setState({ courses: httpResponse.data });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    this.props.createCourse(requestData);
   }
     render() {
 
@@ -133,4 +125,4 @@ export class CreateCourseForm extends Component {
     }
 }
 
-export default CreateCourseForm
+export default connect(null, { createCourse })(CreateCourseForm);
