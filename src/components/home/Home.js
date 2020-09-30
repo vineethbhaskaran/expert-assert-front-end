@@ -6,11 +6,14 @@ import Auth from '../auth/Auth';
 import QuickLaunchContainer from './QuickLaunchContainer';
 import EnrollmentStatus from './EnrollmentStatus';
 import CourseStatus from './CourseStatus';
+import {storeLoggedInInfo} from "../../reduxUtils/actions/authAction"
+import { connect } from 'react-redux';
 
 export class Home extends Component {
     componentDidMount(){
         this.props.auth.handleAuthentication();
-        this.props.auth.isAuthenticated();
+        let isLoggedin=this.props.auth.isAuthenticated();
+        this.props.storeLoggedInInfo(isLoggedin);
     }
     render() {
         return (
@@ -64,4 +67,4 @@ export class Home extends Component {
     }
 }
 
-export default Home
+export default connect(null, { storeLoggedInInfo })(Home);
