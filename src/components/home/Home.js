@@ -9,7 +9,8 @@ import CourseStatus from './CourseStatus';
 
 export class Home extends Component {
     componentDidMount(){
-        this.props.auth.handleAuthentication()
+        this.props.auth.handleAuthentication();
+        this.props.auth.isAuthenticated();
     }
     render() {
         return (
