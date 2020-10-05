@@ -14,7 +14,7 @@ class CourseCardItem extends Component {
             <div className="card-body">
               <h4 className="card-title font-weight-bold">{this.props.course.name}</h4>
               <p className="card-text font-weight-bold">Course Code: {this.props.course.code}</p>
-              <a href="course-designer.html" className="btn btn-outline-amber">
+              <a href="course-designer.html" className="btn btn-outline-primary">
                 View Course
               </a>
             </div>
