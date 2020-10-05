@@ -12,8 +12,8 @@ class CourseCardItem extends Component {
               alt="Card image cap"
             />
             <div className="card-body">
-              <h4 className="card-title">{this.props.course.name}</h4>
-              <p className="card-text">{this.props.course.description}</p>
+              <h4 className="card-title font-weight-bold">{this.props.course.name}</h4>
+              <p className="card-text font-weight-bold">Course Code: {this.props.course.code}</p>
               <a href="course-designer.html" className="btn btn-outline-amber">
                 View Course
               </a>

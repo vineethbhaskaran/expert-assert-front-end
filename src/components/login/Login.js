@@ -43,69 +43,10 @@ export class Login extends Component {
                         <div className="card-title text-center">
                           <h4 className="font-weight-bold"> Express Assert</h4>
                         </div>
-                        <h6 className="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                          <span>Easily Using</span>
-                        </h6>
                       </div>
                       <div className="card-content">
-                        <div className="text-center">
-                          <a href="#" className="btn btn-social-icon mr-1 mb-1 btn-outline-facebook">
-                            <span className="fa fa-facebook"></span>
-                          </a>
-                          <a href="#" className="btn btn-social-icon mr-1 mb-1 btn-outline-twitter">
-                            <span className="fa fa-twitter"></span>
-                          </a>
-                          <a href="#" className="btn btn-social-icon mr-1 mb-1 btn-outline-linkedin">
-                            <span className="fa fa-linkedin font-medium-4"></span>
-                          </a>
-                          <a href="#" className="btn btn-social-icon mr-1 mb-1 btn-outline-github">
-                            <span className="fa fa-github font-medium-4"></span>
-                          </a>
-                        </div>
-                        <p className="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
-                          <span>OR Using Account Details</span>
-                        </p>
                         <div className="card-body">
                           <form className="form-horizontal" onSubmit={this.handleSubmit} novalidate>
-                            <fieldset className="form-group position-relative has-icon-left">
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="user-name"
-                                placeholder="Your Username"
-                                name="user-name"
-                                onChange={this.handleChange}
-                                required
-                              />
-                              <div className="form-control-position">
-                                <i className="feather icon-user"></i>
-                              </div>
-                            </fieldset>
-                            <fieldset className="form-group position-relative has-icon-left">
-                              <input
-                                type="password"
-                                className="form-control"
-                                id="user-password"
-                                placeholder="Enter Password"
-                                required
-                              />
-                              <div className="form-control-position">
-                                <i className="fa fa-key"></i>
-                              </div>
-                            </fieldset>
-                            <div className="form-group row">
-                              <div className="col-sm-6 col-12 text-center text-sm-left pr-0">
-                                <fieldset>
-                                  <input type="checkbox" id="remember-me" className="chk-remember" />
-                                  <label for="remember-me"> Remember Me</label>
-                                </fieldset>
-                              </div>
-                              <div className="col-sm-6 col-12 float-sm-left text-center text-sm-right">
-                                <a href="recover-password.html" className="card-link">
-                                  Forgot Password?
-                                </a>
-                              </div>
-                            </div>
                             <a href="courses.html">
                               <button onClick={this.props.auth.login} className="btn btn-outline-primary btn-block">
                                 <i className="feather icon-unlock"></i> Login
