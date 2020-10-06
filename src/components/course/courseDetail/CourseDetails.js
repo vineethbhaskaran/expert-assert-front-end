@@ -12,12 +12,6 @@ import PropTypes from "prop-types";
 import {withRouter} from 'react-router-dom'
 
 export class CourseDetails extends Component {
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  }
-
   componentDidMount(){
     let selctedCourseId=this.props.location.state.courseId;
     this.props.fetchCourseDetail(selctedCourseId);
@@ -68,6 +62,14 @@ export class CourseDetails extends Component {
     );
   }
 }
+/**
+ * Defining the properties from router
+ */
+CourseDetails.propTypes={
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   courseDetail: state.courseData.courseDetail,
