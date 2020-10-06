@@ -5,10 +5,8 @@ export class CourseDetailCardContent extends Component {
         return (
             <div className="card-content collapse show">
                         <div className="card-body">
-                          <div className="card-text">
-                            <p>
-                            {this.props.coursecontent}
-                            </p>
+                          <div className="card-text" dangerouslySetInnerHTML={{ __html: this.props.coursecontent }}>
+                           
                           </div>
                         </div>
                       </div>

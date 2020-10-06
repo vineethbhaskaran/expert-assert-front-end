@@ -97,8 +97,7 @@ export class CreateCourseForm extends Component {
                                     } }
                                     onChange={ ( event, editor ) => {
                                         const htmlData = editor.getData();
-                                        var data = htmlData.replace(/<\/?[^>]+(>|$)/g, "");
-                                        this.state.courseDecription=data;
+                                        this.state.courseDecription=htmlData;
                                     } }
                                     onBlur={ ( event, editor ) => {
                                         console.log( 'Blur.', editor );
