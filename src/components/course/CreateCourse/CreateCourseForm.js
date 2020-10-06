@@ -32,6 +32,7 @@ export class CreateCourseForm extends Component {
     }
 
     this.props.createCourse(requestData);
+    window.location.replace('/courses');
   }
     render() {
 

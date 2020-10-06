@@ -8,6 +8,7 @@ import Auth from "./components/auth/Auth";
 import CreateCourse from "./components/course/createCourse/CreateCourse";
 import { Provider } from "react-redux";
 import store from './reduxUtils/store';
+import CourseDetails from "./components/course/courseDetail/CourseDetails";
 
 const auth = new Auth();
 class App extends Component {
@@ -30,6 +31,9 @@ class App extends Component {
             </Route>
             <Route path="/courses/create">
               <CreateCourse auth={this.state.auth} />
+            </Route>
+            <Route path="/courses/courseDetail">
+                <CourseDetails auth={this.state.auth}/>
             </Route>
             <Route path="/courses">
               <CourseHome auth={this.state.auth} />
