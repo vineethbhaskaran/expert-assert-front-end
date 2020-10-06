@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import{Link} from 'react-router-dom';
 
 export class CourseDetailsRightSideBarContent extends Component {
     render() {
@@ -18,9 +19,13 @@ export class CourseDetailsRightSideBarContent extends Component {
                     </div>
                     <hr />
                     <div className="text-center">
-                      <a href="./add-lesson-contents.html" className="btn btn-success btn-block">
+                      
+                      <Link to={{
+                        pathname:"/section/create",
+                        state:{courseId:"course_id_placeholder"}
+                      }} className="btn btn-success btn-block">
                         Edit Course
-                      </a>
+                      </Link>
                     </div>
                     <hr />
                     <div className="text-center">

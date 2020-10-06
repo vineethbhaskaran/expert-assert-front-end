@@ -9,6 +9,7 @@ import CreateCourse from "./components/course/createCourse/CreateCourse";
 import { Provider } from "react-redux";
 import store from './reduxUtils/store';
 import CourseDetails from "./components/course/courseDetail/CourseDetails";
+import SectionWriteMode from "./components/section/SectionWriteMode";
 
 const auth = new Auth();
 class App extends Component {
@@ -37,6 +38,10 @@ class App extends Component {
             </Route>
             <Route path="/courses">
               <CourseHome auth={this.state.auth} />
+            </Route>
+
+            <Route path="/section/create">
+              <SectionWriteMode auth={this.state.auth}/>
             </Route>
           </Switch>
         </div>
