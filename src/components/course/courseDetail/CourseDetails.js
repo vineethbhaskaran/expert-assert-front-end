@@ -8,10 +8,19 @@ import CourseDetailCardHeader from "./CourseDetailCardHeader";
 import CourseDetailsRightSideBar from "./CourseDetailsRightSideBar";
 import {fetchCourseDetail} from "../../../reduxUtils/actions/courseAction"
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import {withRouter} from 'react-router-dom'
 
 export class CourseDetails extends Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  }
+
   componentDidMount(){
-    this.props.fetchCourseDetail("5f7c01e5fa304b059c343779");
+    let selctedCourseId=this.props.location.state.courseId;
+    this.props.fetchCourseDetail(selctedCourseId);
   }
   render() {
     return (
@@ -64,4 +73,4 @@ const mapStateToProps = state => ({
   courseDetail: state.courseData.courseDetail,
 });
 
-export default connect(mapStateToProps, { fetchCourseDetail })(CourseDetails);
+export default connect(mapStateToProps, { fetchCourseDetail })(withRouter(CourseDetails));

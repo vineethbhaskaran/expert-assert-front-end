@@ -15,7 +15,11 @@ class CourseCardItem extends Component {
             <div className="card-body">
               <h4 className="card-title font-weight-bold">{this.props.course.name}</h4>
               <p className="card-text font-weight-bold">Course Code: {this.props.course.code}</p>
-              <Link to="/courses/courseDetail" className="btn btn-outline-primary">
+              <Link to={{
+                pathname:"/courses/courseDetail",
+                state:{courseId:this.props.course._id}
+              }}
+              className="btn btn-outline-primary">
                 View Course
               </Link>
             </div>
