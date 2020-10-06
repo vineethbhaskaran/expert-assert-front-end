@@ -6,8 +6,13 @@ import CourseDetailBreadcrumb from "./CourseDetailBreadcrumb";
 import CourseDetailCardContent from "./CourseDetailCardContent";
 import CourseDetailCardHeader from "./CourseDetailCardHeader";
 import CourseDetailsRightSideBar from "./CourseDetailsRightSideBar";
+import {fetchCourseDetail} from "../../../reduxUtils/actions/courseAction"
+import { connect } from 'react-redux';
 
 export class CourseDetails extends Component {
+  componentDidMount(){
+    this.props.fetchCourseDetail("5f7c01e5fa304b059c343779");
+  }
   render() {
     return (
       <div>
@@ -32,8 +37,8 @@ export class CourseDetails extends Component {
                   <div className="col-sm-12 match-height">
                     {/*<!-- Kick start -->*/}
                     <div id="kick-start" className="card ">
-                      <CourseDetailCardHeader/>
-                      <CourseDetailCardContent/>
+                      <CourseDetailCardHeader courseHeader={this.props.courseDetail.name}/>
+                      <CourseDetailCardContent coursecontent={this.props.courseDetail.description}/>
                     </div>
                     {/*<!--/ Kick start -->*/}
                   </div>
@@ -55,4 +60,8 @@ export class CourseDetails extends Component {
   }
 }
 
-export default CourseDetails;
+const mapStateToProps = state => ({
+  courseDetail: state.courseData.courseDetail,
+});
+
+export default connect(mapStateToProps, { fetchCourseDetail })(CourseDetails);

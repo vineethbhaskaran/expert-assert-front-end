@@ -1,23 +1,29 @@
-import { CREATE_COURSE, FETCH_COURSES } from '../actions/type';
+import { CREATE_COURSE, FETCH_COURSES,FETCH_COURSE_DETAIL } from "../actions/type";
 
 const initialState = {
   courses: [],
-  course: {}
+  course: {},
+  courseDetail:{}
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_COURSES:
       return {
         ...state,
-        courses: action.payload
+        courses: action.payload,
       };
     case CREATE_COURSE:
-      return{
+      return {
         ...state,
-        course:action.payload
-      }
-   
+        course: action.payload,
+      };
+    case FETCH_COURSE_DETAIL:
+      return {
+        ...state,
+        courseDetail: action.payload,
+      };
+
     default:
       return state;
   }

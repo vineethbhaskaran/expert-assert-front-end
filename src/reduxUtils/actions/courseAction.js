@@ -1,4 +1,4 @@
-import { CREATE_COURSE,FETCH_COURSES } from './type';
+import { CREATE_COURSE,FETCH_COURSES,FETCH_COURSE_DETAIL } from './type';
 import * as config from "../../config";
 import authAxios from "../../helpers/AuthHelper"
 
@@ -15,6 +15,21 @@ export const fetchCourses = () => dispatch => {
     .catch((error) => {
       console.log(error);
     });
+};
+export const fetchCourseDetail = (courseId) => dispatch => {
+  
+  authAxios
+  .get(config.GET_ALL_COURSES_URL+courseId)
+  .then((response) => {
+    let httpResponse = response.data;
+    dispatch({
+      type: FETCH_COURSE_DETAIL,
+      payload: httpResponse[0]
+    })
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 };
 
 export const createCourse= (courseRequest)=> dispatch =>{
