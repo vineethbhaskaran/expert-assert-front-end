@@ -3,6 +3,8 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {createCourse} from "../../../reduxUtils/actions/courseAction"
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import {withRouter} from 'react-router-dom';
 
 export class CreateCourseForm extends Component {
   
@@ -32,7 +34,7 @@ export class CreateCourseForm extends Component {
     }
 
     this.props.createCourse(requestData);
-    window.location.replace('/courses');
+    this.props.history.push('/courses')
   }
     render() {
 
@@ -125,4 +127,9 @@ export class CreateCourseForm extends Component {
     }
 }
 
-export default connect(null, { createCourse })(CreateCourseForm);
+CreateCourseForm.propTypes={
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+};
+export default connect(null, { createCourse })(withRouter(CreateCourseForm));
