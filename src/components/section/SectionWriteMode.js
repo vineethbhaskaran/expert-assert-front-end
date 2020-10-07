@@ -5,9 +5,14 @@ import NavbarComponent from "../common/NavbarComponent";
 import LessonContainer from "../lesson/LessonContainer";
 import LessonContents from "../lesson/LessonContents";
 import SectionContainer from "./SectionContainer";
+import {fetchSectionsByCourse} from "../../reduxUtils/actions/sectionAction"
+import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom'
 
 export class SectionWriteMode extends Component {
+  componentDidMount() {
+    this.props.fetchSectionsByCourse();
+  }
   render() {
     return (
       <div>
@@ -42,4 +47,4 @@ export class SectionWriteMode extends Component {
   }
 }
 
-export default withRouter(SectionWriteMode);
+export default connect(null, { fetchSectionsByCourse })(withRouter(SectionWriteMode));
