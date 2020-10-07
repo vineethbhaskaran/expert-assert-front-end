@@ -22,7 +22,7 @@ export class CourseDetailsRightSideBarContent extends Component {
                       
                       <Link to={{
                         pathname:"/section/create",
-                        state:{courseId:"course_id_placeholder"}
+                        state:{courseId:this.props.courseId}
                       }} className="btn btn-success btn-block">
                         Edit Course
                       </Link>

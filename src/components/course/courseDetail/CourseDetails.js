@@ -48,7 +48,7 @@ export class CourseDetails extends Component {
                 </div>
               </div>
             </div>
-            <CourseDetailsRightSideBar/>
+            <CourseDetailsRightSideBar courseId={this.props.location.state.courseId}/>
           </div>
         </div>
         {/*<!-- END: Content-->*/}

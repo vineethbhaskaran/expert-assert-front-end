@@ -7,7 +7,7 @@ export class CourseDetailsRightSideBar extends Component {
             <div className="sidebar-detached sidebar-right sidebar-sticky">
               <div className="sidebar">
                 <div className="sidebar-content card d-none d-lg-block">
-                  <CourseDetailsRightSideBarContent/>
+                  <CourseDetailsRightSideBarContent courseId={this.props.courseId}/>
                 </div>
               </div>
             </div>

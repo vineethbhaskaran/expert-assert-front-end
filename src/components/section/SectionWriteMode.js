@@ -5,6 +5,7 @@ import NavbarComponent from "../common/NavbarComponent";
 import LessonContainer from "../lesson/LessonContainer";
 import LessonContents from "../lesson/LessonContents";
 import SectionContainer from "./SectionContainer";
+import {withRouter} from 'react-router-dom'
 
 export class SectionWriteMode extends Component {
   render() {
@@ -19,7 +20,7 @@ export class SectionWriteMode extends Component {
           <div className="container-fluid">
             <div className="row">
               {/*<!-- panel 1 start -->*/}
-              <SectionContainer/>
+              <SectionContainer courseId={this.props.location.state.courseId}/>
               {/*<!-- panel 1 end -->*/}
               {/*<!-- panel 2 start -->*/}
               <LessonContainer/>
@@ -41,4 +42,4 @@ export class SectionWriteMode extends Component {
   }
 }
 
-export default SectionWriteMode;
+export default withRouter(SectionWriteMode);
