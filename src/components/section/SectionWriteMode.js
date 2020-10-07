@@ -11,7 +11,7 @@ import {withRouter} from 'react-router-dom'
 
 export class SectionWriteMode extends Component {
   componentDidMount() {
-    this.props.fetchSectionsByCourse();
+    this.props.fetchSectionsByCourse(this.props.location.state.courseId);
   }
   render() {
     return (
@@ -46,5 +46,8 @@ export class SectionWriteMode extends Component {
     );
   }
 }
+const mapStateToProps=state =>({
+  sections:state.sectionData.sections
+})
 
-export default connect(null, { fetchSectionsByCourse })(withRouter(SectionWriteMode));
+export default connect(mapStateToProps, { fetchSectionsByCourse })(withRouter(SectionWriteMode));
