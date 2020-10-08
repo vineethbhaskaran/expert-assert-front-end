@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 export class SectionItem extends Component {
-    render() {
-        return (
-            <li className="list-group-item">{this.props.section.sectionNumber}. {this.props.section.name}</li>
-        )
-    }
+    handleOnClick = (currentSection) => {
+        console.log("Course:"+currentSection.course+" Section:"+currentSection._id);
+      }
+
+  render() {
+    return (
+      <button type="button" className="list-group-item list-group-item-action" onClick={this.handleOnClick.bind(this, this.props.section)}>
+        {this.props.section.sectionNumber}. {this.props.section.name}
+      </button>
+    );
+  }
 }
 
-export default SectionItem
+export default SectionItem;
