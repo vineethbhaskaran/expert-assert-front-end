@@ -1,4 +1,4 @@
-import { FETCH_LESSON_BY_COURSE_SECTION } from "./type";
+import { CREATE_LESSON, FETCH_LESSON_BY_COURSE_SECTION } from "./type";
 import * as config from "../../config";
 import authAxios from "../../helpers/AuthHelper";
 
@@ -9,6 +9,21 @@ export const fetchLessonByCourseSection = (courseId, sectionId) => (dispatch) =>
       let httpResponse = response.data;
       dispatch({
         type: FETCH_LESSON_BY_COURSE_SECTION,
+        payload: httpResponse.data,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const createLesson = (lessonRequest) => (dispatch) => {
+  authAxios
+    .post(config.LESSON_URL, lessonRequest)
+    .then((response) => {
+      let httpResponse = response.data;
+      dispatch({
+        type: CREATE_LESSON,
         payload: httpResponse.data,
       });
     })
