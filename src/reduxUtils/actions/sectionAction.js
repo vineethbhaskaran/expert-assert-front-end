@@ -1,4 +1,4 @@
-import { FETCH_SECTION_BY_COURSE, CREATE_SECTION } from "./type";
+import { FETCH_SECTION_BY_COURSE, CREATE_SECTION, SET_CURRENT_SECTION } from "./type";
 import * as config from "../../config";
 import authAxios from "../../helpers/AuthHelper";
 
@@ -30,4 +30,11 @@ export const createSection = (sectionRequest) => (dispatch) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+export const setCurrentSection = (currentSection) => (dispatch) => {
+  dispatch({
+    type: SET_CURRENT_SECTION,
+    payload: currentSection,
+  });
 };

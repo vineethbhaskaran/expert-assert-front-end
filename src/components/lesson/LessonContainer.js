@@ -17,5 +17,6 @@ export class LessonContainer extends Component {
 }
 const mapStateToProps = (state) => ({
   lessons: state.lessonData.lessons,
+  section: state.sectionData.section,
 });
 export default connect(mapStateToProps, { fetchLessonByCourseSection })(LessonContainer);

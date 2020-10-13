@@ -1,4 +1,4 @@
-import { CREATE_SECTION, FETCH_SECTION_BY_COURSE } from "../actions/type";
+import { CREATE_SECTION, FETCH_SECTION_BY_COURSE, SET_CURRENT_SECTION } from "../actions/type";
 
 const initialState = {
   sections: [],
@@ -13,6 +13,11 @@ export default function (state = initialState, action) {
         sections: action.payload,
       };
     case CREATE_SECTION:
+      return {
+        ...state,
+        section: action.payload,
+      };
+    case SET_CURRENT_SECTION:
       return {
         ...state,
         section: action.payload,

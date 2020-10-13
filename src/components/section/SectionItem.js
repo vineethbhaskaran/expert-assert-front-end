@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonAction";
+import { setCurrentSection } from "../../reduxUtils/actions/sectionAction";
 import { connect } from "react-redux";
 import store from "../../reduxUtils/store";
 export class SectionItem extends Component {
@@ -8,8 +9,13 @@ export class SectionItem extends Component {
     currentClass: "list-group-item list-group-item-action",
   };
   handleOnClick = (currentSection) => {
-    console.log("Course:" + currentSection.course + " Section:" + currentSection._id);
+    console.log(
+      "Course:" + currentSection.course + " Section:" + currentSection._id + currentSection.name,
+      currentSection.sectionNumber + currentSection.numberOfSessions
+    );
     store.dispatch(fetchLessonByCourseSection(currentSection.course, currentSection._id));
+
+    store.dispatch(setCurrentSection(currentSection));
     // dispatch an action to pull the sections from the API and set it in a store variable.
   };
 
