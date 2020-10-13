@@ -61,7 +61,8 @@ export class Modal extends Component {
                 <div className="form-group">
                   <label>Section Number</label>
                   <input
-                    type="text"
+                    type="number"
+                    min="0"
                     className="form-control"
                     placeholder="Section Number"
                     name="sectionNumber"
@@ -72,7 +73,8 @@ export class Modal extends Component {
                 <div className="form-group">
                   <label>Number of Lessons</label>
                   <input
-                    type="text"
+                    type="number"
+                    min="0"
                     className="form-control"
                     placeholder="Number of Lessons"
                     name="lessonsCount"

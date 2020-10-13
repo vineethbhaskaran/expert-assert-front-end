@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSectionsByCourse } from "../../reduxUtils/actions/sectionAction";
 import SectionList from "./SectionList";
-import Modal from "../modals/Modal";
+import SectionModal from "../modals/SectionModal";
 import { createSection } from "../../reduxUtils/actions/sectionAction";
 import store from "../../reduxUtils/store";
 export class SectionContainer extends Component {
@@ -39,7 +39,7 @@ export class SectionContainer extends Component {
         <button className="btn btn-outline-primary .btn-block mx-1 my-1 " onClick={this.openSectionModal}>
           Create New Section
         </button>
-        <Modal
+        <SectionModal
           show={this.state.showSectionModel}
           closeModal={this.closeSectionModal}
           createSection={this.createSection}
