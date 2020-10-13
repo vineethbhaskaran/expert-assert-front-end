@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { fetchSectionsByCourse } from "../../reduxUtils/actions/sectionAction";
 import SectionList from "./SectionList";
 import Modal from "../modals/Modal";
-
+import { createSection } from "../../reduxUtils/actions/sectionAction";
+import store from "../../reduxUtils/store";
 export class SectionContainer extends Component {
   constructor(props) {
     super(props);
@@ -26,14 +27,9 @@ export class SectionContainer extends Component {
   };
 
   createSection(sectionObject) {
-    console.log(
-      "Section Name: " +
-        sectionObject.sectionName +
-        " sectionNumber: " +
-        sectionObject.sectionNumber +
-        " lessonsCount: " +
-        sectionObject.lessonsCount
-    );
+    //set CourseId and sned to action
+    sectionObject.course = this.props.courseId;
+    store.dispatch(createSection(sectionObject));
     this.closeSectionModal();
   }
 
