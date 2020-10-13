@@ -25,7 +25,12 @@ export class Modal extends Component {
     let name = this.state.sectionName;
     let seq = this.state.sectionNumber;
     let lessonCount = this.state.lessonsCount;
-    this.props.createSection(name, seq, lessonCount);
+    const sectionObject = {
+      sectionName: this.state.sectionName,
+      sectionNumber: this.state.sectionNumber,
+      lessonsCount: this.state.lessonsCount,
+    };
+    this.props.createSection(sectionObject);
   }
 
   render() {

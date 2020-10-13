@@ -7,35 +7,47 @@ import Modal from "../modals/Modal";
 export class SectionContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
-    this.showModal = this.showModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.state = { showSectionModel: false };
+    this.openSectionModal = this.openSectionModal.bind(this);
+    this.closeSectionModal = this.closeSectionModal.bind(this);
     this.createSection = this.createSection.bind(this);
   }
 
-  showModal = () => {
+  openSectionModal = () => {
     this.setState({
-      show: true,
+      showSectionModel: true,
     });
   };
 
-  closeModal = () => {
+  closeSectionModal = () => {
     this.setState({
-      show: false,
+      showSectionModel: false,
     });
   };
-  createSection(name, sectionNumber, numberofLesson) {
-    console.log("Section Name: " + name + " " + sectionNumber + " " + numberofLesson);
-    this.closeModal();
+
+  createSection(sectionObject) {
+    console.log(
+      "Section Name: " +
+        sectionObject.sectionName +
+        " sectionNumber: " +
+        sectionObject.sectionNumber +
+        " lessonsCount: " +
+        sectionObject.lessonsCount
+    );
+    this.closeSectionModal();
   }
 
   render() {
     return (
       <div className="col-2 panel-full-height p-0 bg-grey">
-        <button className="btn btn-outline-primary .btn-block mx-1 my-1 " onClick={this.showModal}>
+        <button className="btn btn-outline-primary .btn-block mx-1 my-1 " onClick={this.openSectionModal}>
           Create New Section
         </button>
-        <Modal show={this.state.show} closeModal={this.closeModal} createSection={this.createSection} />
+        <Modal
+          show={this.state.showSectionModel}
+          closeModal={this.closeSectionModal}
+          createSection={this.createSection}
+        />
         <h6 className="px-2 pb-25 pt-25 mb-0 border-bottom font-weight-bold">SECTIONS</h6>
         <ul className="list-group list-group-flush">
           <SectionList sections={this.props.sections} />
