@@ -1,4 +1,4 @@
-import { CREATE_LESSON, FETCH_LESSON_BY_COURSE_SECTION } from "./type";
+import { CREATE_LESSON, FETCH_LESSON_BY_COURSE_SECTION, SET_CURRENT_LESSON } from "./type";
 import * as config from "../../config";
 import authAxios from "../../helpers/AuthHelper";
 
@@ -30,4 +30,11 @@ export const createLesson = (lessonRequest) => (dispatch) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+export const setCurrentLesson = (currentLesson) => (dispatch) => {
+  dispatch({
+    type: SET_CURRENT_LESSON,
+    payload: currentLesson,
+  });
 };

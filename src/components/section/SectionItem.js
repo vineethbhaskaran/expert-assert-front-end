@@ -4,6 +4,7 @@ import { fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonActio
 import { setCurrentSection } from "../../reduxUtils/actions/sectionAction";
 import { connect } from "react-redux";
 import store from "../../reduxUtils/store";
+
 export class SectionItem extends Component {
   state = {
     currentClass: "list-group-item list-group-item-action",
