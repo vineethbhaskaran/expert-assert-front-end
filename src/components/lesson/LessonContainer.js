@@ -50,9 +50,9 @@ export class LessonContainer extends Component {
       <div className="col-3 panel-full-height p-0 bg-white">
         <div className="list-group">
           <LessonList lessons={this.props.lessons} />
-          <button class="list-group-item d-flex justify-content-between" onClick={this.openLessonModal}>
-            <div class="btn btn-outline-primary .btn-block mx-1 d-flex justify-content-between">
-              <h5 class="font-weight-bold justify-content-between">Create New Lesson</h5>
+          <button className="list-group-item d-flex justify-content-between" onClick={this.openLessonModal}>
+            <div className="btn btn-outline-primary .btn-block mx-1 d-flex justify-content-between">
+              <h5 className="font-weight-bold justify-content-between">Create New Lesson</h5>
             </div>
           </button>
           <LessonModal

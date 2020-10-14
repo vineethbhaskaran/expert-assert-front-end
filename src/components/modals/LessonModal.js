@@ -10,6 +10,7 @@ export class LessonModal extends Component {
   }
 
   handleClose = () => {
+    this.setState({ lessonName: "", lessonSequence: "" });
     this.props.closeModal();
   };
 
@@ -27,6 +28,7 @@ export class LessonModal extends Component {
       sequence: this.state.lessonSequence,
     };
     this.props.createLesson(lessonObject);
+    this.handleClose();
   }
   render() {
     const showHideClassName = this.props.show ? "modal display-block" : "modal display-none";
@@ -38,7 +40,13 @@ export class LessonModal extends Component {
             <form>
               <div className="modal-header">
                 <h5 className="modal-title">Add New Lesson</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onClick={this.handleClose}
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>

@@ -10,6 +10,7 @@ export class Modal extends Component {
   }
 
   handleClose = () => {
+    this.setState({ sectionName: "", sectionNumber: "", lessonsCount: "" });
     this.props.closeModal();
   };
 
@@ -31,18 +32,25 @@ export class Modal extends Component {
       numberOfSessions: this.state.lessonsCount,
     };
     this.props.createSection(sectionObject);
+    this.handleClose();
   }
 
   render() {
     const showHideClassName = this.props.show ? "modal display-block" : "modal display-none";
     return (
-      <div className={showHideClassName} id="createSection" tabindex="-1" role="dialog">
+      <div className={showHideClassName} id="createSection" role="dialog">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <form>
               <div className="modal-header">
                 <h5 className="modal-title">Create New Section</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onClick={this.handleClose}
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -88,7 +96,7 @@ export class Modal extends Component {
                   Save Section
                 </button>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.handleClose}>
-                  Cancel2
+                  Cancel
                 </button>
               </div>
             </form>
