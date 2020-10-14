@@ -1,8 +1,14 @@
-import { CREATE_LESSON, FETCH_LESSON_BY_COURSE_SECTION, SET_CURRENT_LESSON } from "../actions/type";
+import {
+  CREATE_LESSON,
+  FETCH_LESSON_BY_COURSE_SECTION,
+  SET_CURRENT_LESSON,
+  UPDATE_LESSON_CONTENTS,
+} from "../actions/type";
 
 const initialState = {
   lessons: [],
   lesson: {},
+  updated: {},
 };
 
 export default function (state = initialState, action) {
@@ -21,6 +27,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         lesson: action.payload,
+      };
+    case UPDATE_LESSON_CONTENTS:
+      return {
+        ...state,
+        updated: action.payload,
       };
     default:
       return state;

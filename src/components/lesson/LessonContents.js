@@ -3,7 +3,7 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { connect } from "react-redux";
 import store from "../../reduxUtils/store";
-import { setCurrentLesson } from "../../reduxUtils/actions/lessonAction";
+import { setCurrentLesson, updateLesson, fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonAction";
 
 export class LessonContents extends Component {
   constructor(props) {
@@ -22,6 +22,13 @@ export class LessonContents extends Component {
   handleSave(event) {
     event.preventDefault();
     console.log(JSON.stringify(this.state));
+    const currentLesson = {
+      _id: this.props.currentLesson._id,
+      contents: this.state.lessonContents,
+    };
+    store.dispatch(updateLesson(currentLesson));
+    store.dispatch(fetchLessonByCourseSection(this.props.currentLesson.courseId, this.props.currentLesson.sectionId));
+    store.dispatch(setCurrentLesson(currentLesson));
   }
   render() {
     return (
@@ -79,4 +86,5 @@ const mapStateToProps = (state) => ({
   currentLesson: state.lessonData.lesson,
 });
 
-export default connect(mapStateToProps, { setCurrentLesson })(LessonContents);
+const actions = { setCurrentLesson, updateLesson, fetchLessonByCourseSection };
+export default connect(mapStateToProps, actions)(LessonContents);
