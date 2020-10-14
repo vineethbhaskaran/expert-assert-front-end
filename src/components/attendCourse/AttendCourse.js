@@ -4,8 +4,16 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import FooterComponent from "../common/FooterComponent";
 import LeftPaneMenuComponent from "../common/LeftPaneMenuComponent";
 import NavbarComponent from "../common/NavbarComponent";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchSectionsByCourse } from "../../reduxUtils/actions/sectionAction";
+import { fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonAction";
 
 export class AttendCourse extends Component {
+  componentDidMount() {
+    //console.log(this.props.location.state.courseId);
+    this.props.fetchSectionsByCourse(this.props.location.state.courseId);
+  }
   render() {
     return (
       <div>
@@ -13,30 +21,30 @@ export class AttendCourse extends Component {
         <NavbarComponent auth={this.props.auth} />
         <LeftPaneMenuComponent />
 
-        <div class="app-content content">
-          <div class="content-overlay"></div>
-          <div class="content-wrapper">
-            <div class="content-header row">
-              <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title mb-0">Section 1 (Course: Course 1)</h3>
+        <div className="app-content content">
+          <div className="content-overlay"></div>
+          <div className="content-wrapper">
+            <div className="content-header row">
+              <div className="content-header-left col-md-6 col-12 mb-2">
+                <h3 className="content-header-title mb-0">Section 1 (Course: Course 1)</h3>
               </div>
             </div>
-            <div class="content-detached content-left">
-              <div class="content-body">
-                <div class="row panel-full-height">
-                  <div class="col-sm-12 match-height">
+            <div className="content-detached content-left">
+              <div className="content-body">
+                <div className="row panel-full-height">
+                  <div className="col-sm-12 match-height">
                     {/*<!-- Kick start -->*/}
 
-                    <div id=" kick-start" class="card ">
-                      <div class="card-header">
-                        <h4 class="card-title">Lesson 1</h4>
-                        <a class="heading-elements-toggle">
-                          <i class="fa fa-ellipsis-v font-medium-3"></i>
+                    <div id=" kick-start" className="card ">
+                      <div className="card-header">
+                        <h4 className="card-title">Lesson 1</h4>
+                        <a className="heading-elements-toggle">
+                          <i className="fa fa-ellipsis-v font-medium-3"></i>
                         </a>
                       </div>
-                      <div class="card-content collapse show">
-                        <div class="card-body">
-                          <div class="card-text">
+                      <div className="card-content collapse show">
+                        <div className="card-body">
+                          <div className="card-text">
                             <p>
                               Getting start with your project custom requirements using a ready template which is quite
                               difficult and time taking process, Stack Admin provides useful features to kick start your
@@ -83,13 +91,15 @@ export class AttendCourse extends Component {
                             </ul>
                           </div>
                         </div>
-                        <div class="row d-flex my-1">
-                          <div class="col-3 d-flex justify-content-center">
-                            <button class="btn btn-outline-secondary">&lt;&lt;Previous</button>
+                        <div className="row d-flex my-1">
+                          <div className="col-3 d-flex justify-content-center">
+                            <button className="btn btn-outline-secondary">&lt;&lt;Previous</button>
                           </div>
-                          <div class="col-6"></div>
-                          <div class="col-3 d-flex justify-content-center">
-                            <button class="btn btn-outline-secondary">&nbsp;&nbsp;&nbsp;&nbsp; Next &gt;&gt;</button>
+                          <div className="col-6"></div>
+                          <div className="col-3 d-flex justify-content-center">
+                            <button className="btn btn-outline-secondary">
+                              &nbsp;&nbsp;&nbsp;&nbsp; Next &gt;&gt;
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -98,21 +108,21 @@ export class AttendCourse extends Component {
                 </div>
               </div>
             </div>
-            <div class="sidebar-detached sidebar-right sidebar-sticky">
-              <div class="sidebar">
-                <div class="sidebar-content card d-none d-lg-block ">
-                  <div class="card-header">
-                    <div class="text-center border-bottom">
-                      <h5 class="font-weight-bold">Notes</h5>
+            <div className="sidebar-detached sidebar-right sidebar-sticky">
+              <div className="sidebar">
+                <div className="sidebar-content card d-none d-lg-block ">
+                  <div className="card-header">
+                    <div className="text-center border-bottom">
+                      <h5 className="font-weight-bold">Notes</h5>
                     </div>
                   </div>
-                  <div class="card-body">
+                  <div className="card-body">
                     {/*<!-- Card sample -->*/}
-                    <div class="text-center">
-                      <button class="btn btn-outline-secondary btn-block">Save Notes</button>
+                    <div className="text-center">
+                      <button className="btn btn-outline-secondary btn-block">Save Notes</button>
                     </div>
                   </div>
-                  <div class="text-center">
+                  <div className="text-center">
                     <CKEditor
                       editor={ClassicEditor}
                       data=""
@@ -140,8 +150,8 @@ export class AttendCourse extends Component {
           </div>
         </div>
         {/*<!-- END: Content-->*/}
-        <div class="sidenav-overlay"></div>
-        <div class="drag-target"></div>
+        <div className="sidenav-overlay"></div>
+        <div className="drag-target"></div>
         {/*<!-- BEGIN: Footer-->*/}
 
         <FooterComponent />
@@ -150,4 +160,9 @@ export class AttendCourse extends Component {
   }
 }
 
-export default AttendCourse;
+const mapStateToProps = (state) => ({
+  sections: state.sectionData.sections,
+});
+const actions = { fetchSectionsByCourse, fetchLessonByCourseSection };
+
+export default connect(mapStateToProps, actions)(withRouter(AttendCourse));
