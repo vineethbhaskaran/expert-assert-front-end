@@ -1,8 +1,28 @@
 import React, { Component } from "react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { connect } from "react-redux";
+import store from "../../reduxUtils/store";
+import { setCurrentLesson } from "../../reduxUtils/actions/lessonAction";
 
 export class LessonContents extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { lessonContents: "" };
+    this.handleSave = this.handleSave.bind(this);
+  }
+
+  handleChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+    });
+  }
+  handleSave(event) {
+    event.preventDefault();
+    console.log(JSON.stringify(this.state));
+  }
   render() {
     return (
       <div className="col-7 panel-full-height p-0 bg-white">
@@ -10,33 +30,32 @@ export class LessonContents extends Component {
           <form className="form form-horizontal">
             <div className="form-body">
               <div id="button-container">
-                <button type="button" className="btn btn-outline-dark mr-1 font-weight-bold">
+                <button type="button" className="btn btn-outline-dark mr-1 font-weight-bold" onClick={this.handleSave}>
                   Save & Exit
                 </button>
-                <button type="submit" className="btn btn-outline-dark mr-1 font-weight-bold">
+                <button type="submit" className="btn btn-outline-dark mr-1 font-weight-bold" onClick={this.handleSave}>
                   Save
                 </button>
 
-                <a href="./add-question-for-lesson.html" className="btn btn-outline-warning mr-1 font-weight-bold">
-                  Questions
-                </a>
+                <button className="btn btn-outline-warning mr-1 font-weight-bold">Questions</button>
               </div>
               <div>
-                <h4 className="my-1"> Lesson 1</h4>
+                <h4 className="my-1"> {this.props.currentLesson.name}</h4>
                 <div className="row">
                   <div className="col-md-12 ">
                     <CKEditor
                       editor={ClassicEditor}
-                      data=""
-                      name="courseDecription"
-                      value=""
+                      data={this.props.currentLesson.contents}
+                      name="lessonContents"
+                      value={this.state.lessonContents}
                       onInit={(editor) => {
                         // You can store the "editor" and use when it is needed.
                         console.log("Editor is ready to use!", editor);
                       }}
                       onChange={(event, editor) => {
                         const htmlData = editor.getData();
-                        console.log(htmlData);
+                        this.state.lessonContents = htmlData;
+                        //console.log(htmlData);
                       }}
                       onBlur={(event, editor) => {
                         console.log("Blur.", editor);
@@ -56,4 +75,8 @@ export class LessonContents extends Component {
   }
 }
 
-export default LessonContents;
+const mapStateToProps = (state) => ({
+  currentLesson: state.lessonData.lesson,
+});
+
+export default connect(mapStateToProps, { setCurrentLesson })(LessonContents);
