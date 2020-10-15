@@ -24,7 +24,7 @@ export const createLesson = (lessonRequest) => (dispatch) => {
       let httpResponse = response.data;
       dispatch({
         type: CREATE_LESSON,
-        payload: httpResponse.data,
+        payload: lessonRequest,
       });
     })
     .catch((error) => {
