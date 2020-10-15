@@ -2,7 +2,7 @@ import { ATTEND_COURSE_CURRENT_PAGE } from "./type";
 import * as config from "../../config";
 import authAxios from "../../helpers/AuthHelper";
 
-export const attendCourseAction = (courseId) => (dispatch) => {
+export const getAttendCourseCurrentPageContents = (courseId) => (dispatch) => {
   authAxios
     .get(config.COURSE_PROGRESS, { params: { courseId: courseId } })
     .then((response) => {

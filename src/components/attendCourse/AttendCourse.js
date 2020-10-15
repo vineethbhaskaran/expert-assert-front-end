@@ -8,12 +8,12 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchSectionsByCourse } from "../../reduxUtils/actions/sectionAction";
 import { fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonAction";
-import { attendCourseAction } from "../../reduxUtils/actions/attendCourseAction";
+import { getAttendCourseCurrentPageContents } from "../../reduxUtils/actions/courseProgressAction";
 
 export class AttendCourse extends Component {
   componentDidMount() {
     //console.log(this.props.location.state.courseId);
-    this.props.attendCourseAction(this.props.location.state.courseId);
+    this.props.getAttendCourseCurrentPageContents(this.props.location.state.courseId);
   }
   render() {
     return (
@@ -123,8 +123,8 @@ export class AttendCourse extends Component {
 
 const mapStateToProps = (state) => ({
   sections: state.sectionData.sections,
-  courseCurrentPage: state.courseProgress.attendCurrentCoursePage,
+  courseCurrentPage: state.courseProgressData.attendCourseCurrentPage,
 });
-const actions = { fetchSectionsByCourse, fetchLessonByCourseSection, attendCourseAction };
+const actions = { fetchSectionsByCourse, fetchLessonByCourseSection, getAttendCourseCurrentPageContents };
 
 export default connect(mapStateToProps, actions)(withRouter(AttendCourse));

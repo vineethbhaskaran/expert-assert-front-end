@@ -1,7 +1,7 @@
 import { ATTEND_COURSE_CURRENT_PAGE } from "../actions/type";
 
 const initialState = {
-  attendCurrentCoursePage: {},
+  attendCourseCurrentPage: {},
 };
 
 export default function (state = initialState, action) {
@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
     case ATTEND_COURSE_CURRENT_PAGE:
       return {
         ...state,
-        attendCurrentCoursePage: action.payload,
+        attendCourseCurrentPage: action.payload,
       };
 
     default:
