@@ -8,11 +8,12 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchSectionsByCourse } from "../../reduxUtils/actions/sectionAction";
 import { fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonAction";
+import { attendCourseAction } from "../../reduxUtils/actions/attendCourseAction";
 
 export class AttendCourse extends Component {
   componentDidMount() {
     //console.log(this.props.location.state.courseId);
-    this.props.fetchSectionsByCourse(this.props.location.state.courseId);
+    this.props.attendCourseAction(this.props.location.state.courseId);
   }
   render() {
     return (
@@ -26,7 +27,9 @@ export class AttendCourse extends Component {
           <div className="content-wrapper">
             <div className="content-header row">
               <div className="content-header-left col-md-6 col-12 mb-2">
-                <h3 className="content-header-title mb-0">Section 1 (Course: Course 1)</h3>
+                <h3 className="content-header-title mb-0">
+                  {this.props.courseCurrentPage.sectionName} (Course: {this.props.courseCurrentPage.courseName})
+                </h3>
               </div>
             </div>
             <div className="content-detached content-left">
@@ -37,59 +40,17 @@ export class AttendCourse extends Component {
 
                     <div id=" kick-start" className="card ">
                       <div className="card-header">
-                        <h4 className="card-title">Lesson 1</h4>
+                        <h4 className="card-title">{this.props.courseCurrentPage.lessonName}</h4>
                         <a className="heading-elements-toggle">
                           <i className="fa fa-ellipsis-v font-medium-3"></i>
                         </a>
                       </div>
                       <div className="card-content collapse show">
                         <div className="card-body">
-                          <div className="card-text">
-                            <p>
-                              Getting start with your project custom requirements using a ready template which is quite
-                              difficult and time taking process, Stack Admin provides useful features to kick start your
-                              project development with no efforts !
-                            </p>
-                            <ul>
-                              <li>
-                                Stack Admin provides you getting start pages with different layouts, use the layout as
-                                per your custom requirements and just change the branding, menu & content.
-                              </li>
-                              <li>
-                                It use template engine to generate pages and whole template quickly using node js. You
-                                can generate entire template with your selected custom layout, branding & menu. Save
-                                your time for doing the common changes for each page (i.e menu, branding and footer) by
-                                generating template.
-                              </li>
-                              <li>
-                                Every components in Stack Admin are decoupled, it means use use only components you
-                                actually need! Remove unnecessary and extra code easily just by excluding the path to
-                                specific SCSS, JS file.
-                              </li>
-                              <li>
-                                It use template engine to generate pages and whole template quickly using node js. You
-                                can generate entire template with your selected custom layout, branding & menu. Save
-                                your time for doing the common changes for each page (i.e menu, branding and footer) by
-                                generating template.
-                              </li>
-                              <li>
-                                Every components in Stack Admin are decoupled, it means use use only components you
-                                actually need! Remove unnecessary and extra code easily just by excluding the path to
-                                specific SCSS, JS file.
-                              </li>
-                              <li>
-                                It use template engine to generate pages and whole template quickly using node js. You
-                                can generate entire template with your selected custom layout, branding & menu. Save
-                                your time for doing the common changes for each page (i.e menu, branding and footer) by
-                                generating template.
-                              </li>
-                              <li>
-                                Every components in Stack Admin are decoupled, it means use use only components you
-                                actually need! Remove unnecessary and extra code easily just by excluding the path to
-                                specific SCSS, JS file.
-                              </li>
-                            </ul>
-                          </div>
+                          <div
+                            className="card-text"
+                            dangerouslySetInnerHTML={{ __html: this.props.courseCurrentPage.lessonContents }}
+                          ></div>
                         </div>
                         <div className="row d-flex my-1">
                           <div className="col-3 d-flex justify-content-center">
@@ -162,7 +123,8 @@ export class AttendCourse extends Component {
 
 const mapStateToProps = (state) => ({
   sections: state.sectionData.sections,
+  courseCurrentPage: state.courseProgress.attendCurrentCoursePage,
 });
-const actions = { fetchSectionsByCourse, fetchLessonByCourseSection };
+const actions = { fetchSectionsByCourse, fetchLessonByCourseSection, attendCourseAction };
 
 export default connect(mapStateToProps, actions)(withRouter(AttendCourse));
