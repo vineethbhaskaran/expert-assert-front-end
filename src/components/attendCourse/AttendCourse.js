@@ -9,12 +9,22 @@ import { connect } from "react-redux";
 import { fetchSectionsByCourse } from "../../reduxUtils/actions/sectionAction";
 import { fetchLessonByCourseSection } from "../../reduxUtils/actions/lessonAction";
 import { getAttendCourseCurrentPageContents } from "../../reduxUtils/actions/courseProgressAction";
+import store from "../../reduxUtils/store";
 
 export class AttendCourse extends Component {
+  constructor(props) {
+    super(props);
+    this.handleNextButtonClick = this.handleNextButtonClick.bind(this);
+    this.handlePreviousButtonClick = this.handlePreviousButtonClick.bind(this);
+  }
   componentDidMount() {
     //console.log(this.props.location.state.courseId);
     this.props.getAttendCourseCurrentPageContents(this.props.location.state.courseId);
   }
+  handleNextButtonClick() {
+    store.dispatch(getAttendCourseCurrentPageContents(this.props.courseCurrentPage.courseId));
+  }
+  handlePreviousButtonClick() {}
   render() {
     return (
       <div>
@@ -58,7 +68,7 @@ export class AttendCourse extends Component {
                           </div>
                           <div className="col-6"></div>
                           <div className="col-3 d-flex justify-content-center">
-                            <button className="btn btn-outline-secondary">
+                            <button className="btn btn-outline-secondary" onClick={this.handleNextButtonClick}>
                               &nbsp;&nbsp;&nbsp;&nbsp; Next &gt;&gt;
                             </button>
                           </div>
