@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import CourseHome from "./components/course/courseHome/CourseHome";
-import Home from "./components/home/Home";
 import { Login } from "./components/login/Login";
 import Auth from "./components/auth/Auth";
 import CreateCourse from "./components/course/createCourse/CreateCourse";
@@ -11,6 +10,7 @@ import store from "./reduxUtils/store";
 import CourseDetails from "./components/course/courseDetail/CourseDetails";
 import SectionWriteMode from "./components/section/SectionWriteMode";
 import AttendCourse from "./components/attendCourse/AttendCourse";
+import Home from "./components/home/Home";
 
 const auth = new Auth();
 class App extends Component {
