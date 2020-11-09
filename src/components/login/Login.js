@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import SignUpButton from "./SignUpButton";
 function Login(props) {
   const [userName, setUserName] = useState(0);
   const handleChange = (event) => {
@@ -30,9 +32,7 @@ function Login(props) {
                       <div className="card-body">
                         <form className="form-horizontal" onSubmit={handleSubmit} novalidate>
                           <a href="courses.html">
-                            <button onClick={props.auth.login} className="btn btn-outline-primary btn-block">
-                              <i className="feather icon-unlock"></i> Login
-                            </button>
+                            <LoginButton auth={props.auth} />
                           </a>
                         </form>
                       </div>
@@ -40,9 +40,7 @@ function Login(props) {
                         <span>New to Express Assert ?</span>
                       </p>
                       <div className="card-body">
-                        <a href="register-with-bg-image.html" className="btn btn-outline-danger btn-block">
-                          <i className="feather icon-user"></i> Register
-                        </a>
+                        <SignUpButton auth={props.auth} />
                       </div>
                     </div>
                   </div>
