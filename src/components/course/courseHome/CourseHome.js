@@ -1,24 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import NavbarComponent from "../../common/NavbarComponent";
 import LeftPaneMenuComponent from "../../common/LeftPaneMenuComponent";
 import CourseContent from "./CourseContent";
 import FooterComponent from "../../common/FooterComponent";
 
-class CourseHome extends Component {
-  render() {
-    return (
-      <div>
-        <NavbarComponent auth={this.props.auth}/>
-        <LeftPaneMenuComponent />
+function CourseHome(props) {
+  return (
+    <div>
+      <NavbarComponent auth={props.auth} />
+      <LeftPaneMenuComponent />
 
-        <CourseContent />
+      <CourseContent />
 
-        <div className="sidenav-overlay"></div>
-        <div className="drag-target"></div>
-        <FooterComponent />
-      </div>
-    );
-  }
+      <div className="sidenav-overlay"></div>
+      <div className="drag-target"></div>
+      <FooterComponent />
+    </div>
+  );
 }
 
+//Prop types
+CourseHome.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
 export default CourseHome;

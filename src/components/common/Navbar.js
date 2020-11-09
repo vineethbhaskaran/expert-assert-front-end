@@ -1,5 +1,6 @@
 import React from "react";
 import LogoutButton from "../login/LogoutButton";
+import PropTypes from "prop-types";
 function Navbar(props) {
   return (
     <nav className="header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top navbar-semi-dark">
@@ -106,5 +107,10 @@ function Navbar(props) {
     </nav>
   );
 }
+
+//Prop types
+Navbar.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
 
 export default Navbar;

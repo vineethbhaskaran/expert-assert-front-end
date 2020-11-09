@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import CourseCardItem from "./CourseCardItem";
 import PropTypes from "prop-types";
 
-class CourseCards extends Component {
-  render() {
-    return this.props.courses.map((course)=>(<CourseCardItem key={course._id} course={course}/>)
-    );
-  }
+function CourseCards(props) {
+  return props.courses.map((course) => <CourseCardItem key={course._id} course={course} />);
 }
 
 //Prop types
