@@ -3,7 +3,7 @@ import * as config from "../../config";
 require("dotenv").config();
 
 export default class Auth {
-  constructor() {
+  /* constructor() {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
   }
@@ -56,5 +56,5 @@ export default class Auth {
     this.auth0.logout({
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
     });
-  }
+  }*/
 }

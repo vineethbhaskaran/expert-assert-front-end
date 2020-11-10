@@ -7,14 +7,23 @@ import { connect } from "react-redux";
 import Navbar from "../common/Navbar";
 import LeftPaneMenu from "../common/LeftPaneMenu";
 import Footer from "../common/Footer";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Home(props) {
+  const { user } = useAuth0();
+  let name = "Guest";
+  if (typeof user !== "undefined" || user === null) {
+    name = user.name;
+  }
+  //const { name } = user;
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    props.auth.handleAuthentication();
+    /* props.auth.handleAuthentication();
     let isLoggedin = props.auth.isAuthenticated();
-    props.storeLoggedInInfo(isLoggedin);
-    console.log("use effect is triggered");
+    props.storeLoggedInInfo(isLoggedin);*/
+    console.log("use effect is triggered UserName:");
+    console.log(JSON.stringify(user));
+    //console.log(name);
   });
 
   return (

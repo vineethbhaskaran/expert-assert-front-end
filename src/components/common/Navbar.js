@@ -1,7 +1,17 @@
 import React from "react";
 import LogoutButton from "../login/LogoutButton";
 import PropTypes from "prop-types";
+import { useAuth0 } from "@auth0/auth0-react";
 function Navbar(props) {
+  const { user } = useAuth0();
+  let userName = "Guest";
+  let pictureSource = "";
+  let email = "";
+  if (typeof user !== "undefined" || user === null) {
+    userName = user.name;
+    pictureSource = user.picture;
+    email = user.email;
+  }
   return (
     <nav className="header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top navbar-semi-dark">
       <div className="navbar-wrapper">
@@ -87,10 +97,10 @@ function Navbar(props) {
               <li className="dropdown dropdown-user nav-item">
                 <a className="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                   <div className="avatar avatar-online">
-                    <img src="/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar" />
+                    <img src={pictureSource} alt="avatar" />
                     <i></i>
                   </div>
-                  <span className="user-name">John Doe</span>
+                  <span className="user-name">{userName}</span>
                 </a>
                 <div className="dropdown-menu dropdown-menu-right">
                   <a className="dropdown-item" href="user-profile.html">
