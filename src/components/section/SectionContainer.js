@@ -28,7 +28,7 @@ export class SectionContainer extends Component {
 
   createSection(sectionObject) {
     //set CourseId and sned to action
-    sectionObject.course = this.props.courseId;
+    sectionObject.courseId = this.props.courseId;
     store.dispatch(createSection(sectionObject));
     store.dispatch(fetchSectionsByCourse(this.props.courseId));
     this.closeSectionModal();
