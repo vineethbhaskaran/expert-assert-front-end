@@ -38,7 +38,9 @@ export class LessonContainer extends Component {
       console.log(JSON.stringify(lessonObject));
       store.dispatch(createLesson(lessonObject));
       //fetching lessons to update ui
-      store.dispatch(fetchLessonByCourseSection(courseId, sectionId));
+      setTimeout(() => {
+        store.dispatch(fetchLessonByCourseSection(courseId, sectionId));
+      }, 50);
 
       this.closeLessonModal();
     } else {

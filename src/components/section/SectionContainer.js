@@ -30,7 +30,10 @@ export class SectionContainer extends Component {
     //set CourseId and sned to action
     sectionObject.courseId = this.props.courseId;
     store.dispatch(createSection(sectionObject));
-    store.dispatch(fetchSectionsByCourse(this.props.courseId));
+
+    setTimeout(() => {
+      store.dispatch(fetchSectionsByCourse(this.props.courseId));
+    }, 50);
     this.closeSectionModal();
   }
 
