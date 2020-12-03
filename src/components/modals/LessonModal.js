@@ -25,7 +25,8 @@ export class LessonModal extends Component {
   handleSubmit() {
     const lessonObject = {
       name: this.state.lessonName,
-      sequence: this.state.lessonSequence,
+      lessonSequence: parseInt(this.state.lessonSequence),
+      tenantId: "dummy tenant",
     };
     this.props.createLesson(lessonObject);
     this.handleClose();

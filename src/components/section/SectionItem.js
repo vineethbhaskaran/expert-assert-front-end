@@ -11,10 +11,10 @@ export class SectionItem extends Component {
   };
   handleOnClick = (currentSection) => {
     console.log(
-      "Course:" + currentSection.course + " Section:" + currentSection._id + currentSection.name,
-      currentSection.sectionNumber + currentSection.numberOfSessions
+      "Course:" + currentSection.courseId + " Section:" + currentSection._id + currentSection.name,
+      currentSection.sectionSequence + currentSection.numberOfLessons
     );
-    store.dispatch(fetchLessonByCourseSection(currentSection.course, currentSection._id));
+    store.dispatch(fetchLessonByCourseSection(currentSection.courseId, currentSection._id));
 
     store.dispatch(setCurrentSection(currentSection));
     // dispatch an action to pull the sections from the API and set it in a store variable.

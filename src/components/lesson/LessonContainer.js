@@ -28,7 +28,7 @@ export class LessonContainer extends Component {
 
   createLesson(lessonObject) {
     lessonObject.contents = lessonObject.name + " content";
-    let courseId = this.props.section.course;
+    let courseId = this.props.section.courseId;
 
     let sectionId = this.props.section._id;
     if (courseId != null && courseId != undefined) {
