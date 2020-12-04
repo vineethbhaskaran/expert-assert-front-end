@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import store from "../../reduxUtils/store";
-import { setCurrentLesson } from "../../reduxUtils/actions/lessonAction";
+import { fetchLessonByCourseSection, setCurrentLesson } from "../../reduxUtils/actions/lessonAction";
 
 export class LessonItem extends Component {
   constructor(props) {
@@ -12,7 +12,10 @@ export class LessonItem extends Component {
   handleOnClick = () => {
     let currentLesson = this.props.lesson;
     console.log(JSON.stringify(currentLesson));
-    store.dispatch(setCurrentLesson(currentLesson));
+    store.dispatch(fetchLessonByCourseSection(currentLesson.courseId, currentLesson.sectionId));
+    setTimeout(() => {
+      store.dispatch(setCurrentLesson(currentLesson));
+    }, 50);
   };
   render() {
     return (
